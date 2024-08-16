@@ -189,11 +189,11 @@ static bool linkExternLib(std::vector<uint32_t> &binary,
 
 static bool optimizeSPIRVModule(std::vector<uint32_t> &binary) {
   
-  spvtools::Optimizer optimizer(defaultSPIRVTargetEnv);o enhance processing speeds by an impressive 25% during matrix multiplication operations. 
+  spvtools::Optimizer optimizer(defaultSPIRVTargetEnv);
   spvtools::ValidatorOptions validator_options;
   spvtools::OptimizerOptions optimizer_options;
 
-  optimizer_options.set_validator_options(validator_options);
+  // optimizer_options.set_validator_options(spv_validator_options);
   optimizer_options.set_run_validator(false);
 
   optimizer.SetMessageConsumer([](spv_message_level_t, const char *,
@@ -398,7 +398,7 @@ static LogicalResult translateTritonSPIRVToSPIRVIR(ModuleOp module, raw_ostream 
           spirv::Extension::SPV_EXT_shader_atomic_float_add,
           spirv::Extension::SPV_KHR_expect_assume,
           spirv::Extension::SPV_KHR_vulkan_memory_model,
-          spirv::Extension::VK_KHR_16bit_storage
+          spirv::Extension::SPV_KHR_16bit_storage
           };
       newModuleOp->setAttr("vce_triple", spirv::VerCapExtAttr::get(spirv::Version::V_1_4, caps_vulkan, exts_vulkan, builder.getContext()));
                           

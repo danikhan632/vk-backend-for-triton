@@ -205,7 +205,7 @@ public:
             spirv::Extension::SPV_EXT_shader_atomic_float_add,
             spirv::Extension::SPV_KHR_expect_assume,
             spirv::Extension::SPV_KHR_vulkan_memory_model,
-            spirv::Extension::VK_KHR_16bit_storage
+            spirv::Extension::SPV_KHR_16bit_storage
     };
     auto triple = spirv::VerCapExtAttr::get(
             spirv::Version::V_1_4, caps_vulkan, exts_vulkan, context);
